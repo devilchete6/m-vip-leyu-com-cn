@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://devilchete6.github.io/m-vip-leyu-com-cn/sitemap.xml
