@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>蓝鲸体育 – 资料索引与使用指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f5faf9;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1a2e2c;
+      line-height: 1.6;
+      padding: 24px 20px 40px;
+      min-height: 100vh;
+    }
+
+    .page-wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* 卡片网格基调 */
+    .card-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 1fr;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 28px 24px;
+      box-shadow: 0 8px 20px rgba(23, 94, 84, 0.06), 0 2px 6px rgba(0, 40, 35, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.25s ease;
+      border: 1px solid #d6ece8;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(30, 110, 100, 0.10);
+      border-color: #8ccfc7;
+    }
+
+    .accent-border {
+      border-left: 6px solid #219a8c;
+    }
+
+    /* 标题树 */
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      color: #0e3d38;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #15574d;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h2::before {
+      content: "▍";
+      color: #1faa99;
+      font-weight: 700;
+      font-size: 1.7rem;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #1a5e54;
+      margin-bottom: 10px;
+    }
+
+    /* 点缀与间距 */
+    .subhead {
+      font-size: 1rem;
+      color: #3b6b63;
+      background: #e7f5f2;
+      display: inline-block;
+      padding: 4px 18px;
+      border-radius: 40px;
+      margin-bottom: 22px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    a {
+      color: #1b7c6f;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    a:hover,
+    a:focus {
+      color: #0b5247;
+      border-bottom-color: #1b7c6f;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 10px 22px;
+      border: 1.5px solid #1b7c6f;
+      border-radius: 60px;
+      background: transparent;
+      color: #15574d;
+      font-weight: 500;
+      transition: 0.2s;
+      margin-top: 6px;
+      text-decoration: none;
+    }
+
+    .btn-outline:hover {
+      background: #e1f2ee;
+      border-color: #0e5f53;
+      color: #0a4038;
+    }
+
+    .flex-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      margin: 24px 0 8px;
+    }
+
+    .tag {
+      background: #e3f2ef;
+      padding: 4px 16px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      color: #1c5f53;
+      border: 1px solid #c3dfd9;
+    }
+
+    .faq-item {
+      margin-bottom: 22px;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #0b4b40;
+      margin-bottom: 6px;
+    }
+
+    .faq-a {
+      color: #2d554e;
+      padding-left: 8px;
+      border-left: 3px solid #b1dbd2;
+      padding-left: 16px;
+    }
+
+    .footnote {
+      margin-top: 36px;
+      padding-top: 18px;
+      border-top: 1px solid #c7e0da;
+      font-size: 0.9rem;
+      color: #3a6a61;
+    }
+
+    /* 响应式细节 */
+    @media (min-width: 640px) {
+      body {
+        padding: 32px 28px 48px;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .card-wide {
+        grid-column: 1 / -1;
+      }
+
+      h1 {
+        font-size: 2.6rem;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .card-wide {
+        grid-column: 1 / -1;
+      }
+
+      .three-col-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 18px;
+      }
+    }
+
+    /* 手机小屏微调 */
+    @media (max-width: 400px) {
+      .card {
+        padding: 20px 16px;
+      }
+
+      h1 {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- hero 区域 / 摘要 -->
+    <header style="margin-bottom: 28px;">
+      <h1>蓝鲸体育 · 资料整理与信息索引</h1>
+      <div class="subhead">从零散资讯到结构化阅读</div>
+      <p style="max-width: 700px; font-size: 1.05rem;">
+        如果你正在寻找体育赛事的比分、赛程、队伍动向，或者只是想随手刷一刷比赛集锦，<strong>「蓝鲸体育」</strong>算得上一个信息聚合的去处。下面这份页面从<strong>资料整理</strong>的角度，把它的特点、用法以及一些值得留意的细节梳理出来，方便你快速了解。
+      </p>
+    </header>
+
+    <!-- 卡片网格 -->
+    <div class="card-grid">
+      
+      <!-- 卡片 1：亮点摘要（宽卡） -->
+      <div class="card card-wide accent-border">
+        <h2>三个印象</h2>
+        <div class="three-col-content">
+          <div>
+            <h3>🗂️ 内容覆盖</h3>
+            <p>足球、篮球、网球、电竞赛事…… 主流联赛与杯赛基本都有收录，比分更新比较及时，适合赛前赛后随手刷一眼。</p>
+          </div>
+          <div>
+            <h3>📱 移动适配</h3>
+            <p>手机浏览器打开体验不错，不需要额外下载应用。页面轻量，加载快，对临时查个赛程来说很友好。</p>
+          </div>
+          <div>
+            <h3>🧭 信息结构</h3>
+            <p>分类清晰，热门比赛置顶，数据卡片排版整齐。作为信息索引，它能帮你省下不少来回搜索的时间。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 卡片 2：使用建议 -->
+      <div class="card">
+        <h2>使用建议</h2>
+        <ul style="list-style: none; padding-left: 0;">
+          <li style="margin-bottom: 14px; display: flex; gap: 10px;">
+            <span style="color: #1b7c6f; font-weight: 700;">1</span>
+            <span><strong>赛前预习</strong> – 翻一翻即将开始的比赛列表，挑几场感兴趣的提前关注。</span>
+          </li>
+          <li style="margin-bottom: 14px; display: flex; gap: 10px;">
+            <span style="color: #1b7c6f; font-weight: 700;">2</span>
+            <span><strong>赛后复盘</strong> – 比分与基础数据够用，适合快速回顾比赛进程。</span>
+          </li>
+          <li style="margin-bottom: 8px; display: flex; gap: 10px;">
+            <span style="color: #1b7c6f; font-weight: 700;">3</span>
+            <span><strong>信息对比</strong> – 同时段多场赛事可以并排浏览，不用来回切换页面。</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 卡片 3：场景举例 -->
+      <div class="card">
+        <h2>场景举例</h2>
+        <p>周末晚上想找个足球赛看，又不知道哪场值得熬夜。打开<a href="https://cn-m-lanjingsports.com">蓝鲸体育</a>扫一眼热门场次，结合实时比分和关注度，很快就能决定。如果你只是需要一份干净的赛程表，它也是一个很省心的起点。</p>
+        <div class="flex-tags">
+          <span class="tag">🏈 足球</span>
+          <span class="tag">🏀 篮球</span>
+          <span class="tag">🎾 网球</span>
+          <span class="tag">⚡ 电竞</span>
+        </div>
+      </div>
+
+      <!-- 卡片 4：可信但克制的说明 -->
+      <div class="card">
+        <h2>一点说明</h2>
+        <p>数据来自公开信息来源，平台本身不生产原始内容，而是以信息索引的方式呈现。作为使用者，建议结合官方渠道或直播源做最终确认，毕竟实时性再高也难免有延迟或偶发误差。</p>
+        <p>整体来说，<a href="https://cn-m-lanjingsports.com">蓝鲸体育</a>给人的感觉更像一个<strong>体育信息台</strong>，不花哨，但该有的都有。如果你习惯先看数据再决定看哪场比赛，这种工具型页面会比社交媒体的碎片消息高效不少。</p>
+      </div>
+
+      <!-- 卡片 5：FAQ 摘要 -->
+      <div class="card card-wide">
+        <h2>常见疑问摘要</h2>
+        <div style="display: grid; grid-template-columns: 1fr; gap: 6px;">
+          <div class="faq-item">
+            <div class="faq-q">需要注册或付费吗？</div>
+            <div class="faq-a">不需要。直接通过浏览器访问即可查看赛程、比分等基础信息，没有强制注册门槛。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">数据更新频率怎么样？</div>
+            <div class="faq-a">主流赛事基本能做到分钟级更新，杯赛和次级联赛稍微慢一些，但整体可用性不错。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">有手机应用吗？</div>
+            <div class="faq-a">目前主要是网页版，移动端适配做得挺好，添加到主屏幕用起来和 App 感觉差不多。</div>
+          </div>
+        </div>
+        <p style="margin-top: 16px; font-size: 0.95rem; color: #3b6b63;">更多细节可以直接去站点里翻翻，体验比描述更直观。</p>
+      </div>
+    </div>
+
+    <!-- 底部 / 导航式 -->
+    <div class="footnote">
+      <span>📋 本文档仅作资料索引用途 · 内容来源参考 <a href="https://cn-m-lanjingsports.com">蓝鲸体育</a> 公开信息</span>
+      <span style="display: block; margin-top: 6px; color: #547a72;">—— 整理自日常使用笔记，2025 · 页面风格基于蓝绿色网格卡片</span>
+    </div>
+  </div>
+</body>
+</html>
